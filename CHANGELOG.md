@@ -1,3 +1,8 @@
+## [1.0.5](https://github.com/kongnet/mbig/compare/v1.0.4...v1.0.5) (2023-08-21)
+
+
+
+
 ## [1.0.4](https://github.com/kongnet/mbig/compare/v1.0.3...v1.0.4) (2023-08-21)
 
 
