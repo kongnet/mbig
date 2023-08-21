@@ -1,9 +1,10 @@
 # mbig
 
-- code only 100 rows
-- easy bigdecimal use bigInt
-- use Big.JS's tests pass all add,sub,mul. div RM only truncation mode
-- Performance is twice of xx
+- code only 100 lines.
+- easy bigDecimal use bigInt.
+- use Big.JS's tests pass all add,sub,mul. div RM only truncation mode,support dp setting.
+- integer e+21, decmail e-7, use Scientific notation.
+- Performance is twice of xx.
 
 > npm i mbig
 

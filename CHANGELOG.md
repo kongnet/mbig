@@ -1,3 +1,12 @@
+## [1.0.4](https://github.com/kongnet/mbig/compare/v1.0.3...v1.0.4) (2023-08-21)
+
+
+### :art:
+
+* first ([3f8ca35](https://github.com/kongnet/mbig/commit/3f8ca355e81e09fe9f08992507db61f17d267c0c))
+
+
+
 ## [1.0.3](https://github.com/kongnet/mbig/compare/4153e01310d84279233843ca0caee7aa30242cb2...v1.0.3) (2023-08-21)
 
 
