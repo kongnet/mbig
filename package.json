@@ -1,0 +1,46 @@
+{
+  "name": "mbig",
+  "version": "1.0.2",
+  "description": "easy bigDecimal use bigInt",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "patch": "git add . && git commit -m:pencil2: && npm version patch && npm publish .",
+    "cz": "conventional-changelog -p atom -i CHANGELOG.md -s -r 0 && git add . && git status && git cz",
+    "push": "npm version patch && npm publish . && git push",
+    "jsdoc": "jsdoc ./README.md --configure  ./jsdoc.config.js",
+    "testlocal": "standard *.js && istanbul cover ./node_modules/mocha/bin/_mocha -- -r co-mocha --reporter spec --timeout 100000 --recursive tests/",
+    "test_new": "nyc mocha --timeout 100000 --recursive tests/",
+    "test": "mocha --recursive tests/",
+    "cjs2mjs": "rollup -c rollup.config.js",
+    "test2": "istanbul cover ./node_modules/mocha/bin/_mocha -- -r co-mocha --reporter mochawesome --timeout 100000 --recursive tests/",
+    "codecov": "nyc mocha --recursive tests/ && cat ./coverage/lcov.info | codecov",
+    "cov": "nyc --reporter html --reporter text npm test",
+    "coveralls": "nyc --reporter=lcov mocha --timeout 100000 --recursive tests/ && cat ./coverage/lcov.info",
+    "gents": "dts-gen -m meeko -o"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kongnet/mbig.git"
+  },
+  "keywords": [
+    "decimal",
+    "big"
+  ],
+  "author": "kongnet",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kongnet/mbig/issues"
+  },
+  "homepage": "https://github.com/kongnet/mbig#readme",
+  "devDependencies": {
+    "cz-jt": "^0.1.11"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-jt"
+    }
+  }
+}
