@@ -1,10 +1,12 @@
 # mbig
 
-- Code only 100 lines, can be shorter...
+- Code only 80 lines, can be shorter...
 - Easy bigDecimal use bigInt.
 - Use Big.JS's tests pass all add,sub,mul. div RM only truncation mode, support dp setting.
 - Integer e+21, decmail e-7, use Scientific notation.
 - Performance is twice of xx.
+
+# Install
 
 > npm i mbig
 
@@ -12,6 +14,8 @@
 - sub
 - mul
 - div
+
+# Usage
 
 ```javascript
 let r = new Big(1) // new Big(Number or String ,dp as Decimal precision)

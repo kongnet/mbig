@@ -4,21 +4,15 @@ const numReg = /^(-?\d+)(\.\d+)?([eE][-+]?\d+)?$/
 const expReg = /[eE]/
 function BN (s) {
   let a = (s + '').match(numReg)
-  // console.log(a)
   let [, a1, a2, a3] = a
   a2 = a2 || ''
   let zoom = a2.length - 1
   zoom = zoom < 0 ? 0 : zoom
   let exp = +(a3 || '').replace(expReg, '') || 0
   zoom = zoom + (exp < 0 ? abs(exp) : 0)
-  // console.log('zoom', zoom)
   let bInt = BigInt(a1 + a2.replace('.', '') + (exp > 0 ? '0'.repeat(exp) : ''))
   let magnify = BigInt(zoom)
-  // console.log('input:', s, '\na1:   ', a1, '\na2:    ', a2, '\na3:', a3, '\nzoom:', zoom, '\nexp:', exp)
-  return {
-    magnify,
-    bInt
-  }
+  return { magnify, bInt }
 }
 class Big {
   constructor (s, dp = 40) {
@@ -52,8 +46,7 @@ class Big {
     this.bn.magnify -= bn1.magnify
     let diff = dp - this.bn.magnify
     if (diff < 0) {
-      // diff += (abs(diff) / dp + 1n) * dp
-      diff = dp
+      diff = dp // diff += (abs(diff) / dp + 1n) * dp
     }
     this.bn.bInt *= 10n ** diff
     this.bn.magnify += diff
@@ -66,45 +59,18 @@ class Big {
     let z = this.bInt / 10n ** this.bn.magnify
     let f = this.bInt % 10n ** this.bn.magnify
     let signStr = ''
-    let zoreCount =
-      Number(this.bn.magnify) - (f + '').length < 0
-        ? 0
-        : Number(this.bn.magnify) - (f + '').length
-
+    let zoreCount = Number(this.bn.magnify) - (f + '').length < 0 ? 0 : Number(this.bn.magnify) - (f + '').length
     if (z === 0n && zoreCount > 5) {
       let fStr = f.toString() //.slice(0, this.dp)
-
-      return (
-        (signCof < 0 ? '-' : signStr) +
-        fStr.at(0) +
-        '.' +
-        fStr.slice(1).replace(/[0]+$/, '') +
-        'e-' +
-        (zoreCount + 1)
-      ).replace(/^0\.e[+-]\d+/, '0')
+      return ((signCof < 0 ? '-' : signStr) + fStr.at(0) + '.' + fStr.slice(1).replace(/[0]+$/, '') + 'e-' + (zoreCount + 1)).replace(/^0\.e[+-]\d+/, '0')
     }
     if (z >= 1000000000000000000000n) {
       f = '0'.repeat(zoreCount) + f
-      return (
-        (signCof < 0 ? '-' : signStr) +
-        (
-          z.toString().at(0) +
-          '.' +
-          z.toString().slice(1) +
-          f.replace(/[0]+$/, '')
-        ).replace(/[0]+$/, '') +
-        'e+' +
-        (z.toString().length - 1)
-      )
+      return (signCof < 0 ? '-' : signStr) + (z.toString().at(0) + '.' + z.toString().slice(1) + f.replace(/[0]+$/, '')).replace(/[0]+$/, '') + 'e+' + (z.toString().length - 1)
     }
     f = '0'.repeat(zoreCount) + f
     // f = f.slice(0, this.dp)
-
-    return ((signCof < 0 ? '-' : signStr) + z + '.' + f)
-      .replace(/[0]+$/, '')
-      .replace(/\.$/, '')
+    return ((signCof < 0 ? '-' : signStr) + z + '.' + f).replace(/[0]+$/, '').replace(/\.$/, '')
   }
 }
-module.exports = {
-  Big
-}
+module.exports = { Big }
