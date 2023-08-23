@@ -3,6 +3,12 @@
   "version": "1.0.8",
   "description": "easy bigDecimal use bigInt",
   "main": "index.js",
+  "exports": {
+    ".": {
+      "import": "./index.mjs",
+      "require": "./index.js"
+    }
+  },
   "directories": {
     "test": "test"
   },
@@ -36,7 +42,10 @@
   },
   "homepage": "https://github.com/kongnet/mbig#readme",
   "devDependencies": {
-    "cz-jt": "^0.1.11"
+    "cz-jt": "^0.1.11",
+    "@rollup/plugin-commonjs": "^22.0.0",
+    "@rollup/plugin-json": "^4.1.0",
+    "rollup-plugin-node-builtins": "^2.1.2"
   },
   "config": {
     "commitizen": {
