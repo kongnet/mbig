@@ -1,4 +1,5 @@
 const { Big } = require('./index.js')
+const $ = require('meeko')
 let r = new Big('0.0000000000000000054711199148498021943923959', 48)
 console.log(r.div('1272081315518854327.889613539682731') + '')
 
