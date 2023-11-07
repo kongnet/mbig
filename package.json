@@ -1,6 +1,6 @@
 {
   "name": "mbig",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "easy bigDecimal use bigInt",
   "main": "index.js",
   "exports": {
