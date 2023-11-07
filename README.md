@@ -29,6 +29,20 @@ console.log(r.div('1272081315518854327.889613539682731') + '')
 // 4.300919955434e-36
 ```
 
+```javascript
+const { Big } = require('mBig')
+
+function compoundInterest(amount, apr, startTime) {
+  let diff = ((new Date() - startTime) / 1000) | 0
+  let minSpend = 7200
+  let secOfYear = 31536000
+  let spend = diff < minSpend ? minSpend : diff
+  let subNum = new Big(apr).div(secOfYear).add(1)
+  return new Big(amount).mul((+subNum) ** spend).mul(1e18) + ''
+}
+console.log(compoundInterest(1, 1, new Date() - 31536000 * 1000))
+```
+
 > npm test
 
 > 5500+ pass

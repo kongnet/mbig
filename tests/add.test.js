@@ -1,4 +1,4 @@
-const { test, Big } = require('../test.js')
+const { test, Big } = require('../index.test.js')
 
 test('plus', function () {
   const t = (addendA, addendB, expected) => {
