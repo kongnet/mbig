@@ -30,7 +30,7 @@ console.log(r.div('1272081315518854327.889613539682731') + '')
 ```
 
 ```javascript
-const { Big } = require('mBig')
+const { Big } = require('mbig')
 
 function compoundInterest(amount, apr, startTime) {
   let diff = ((new Date() - startTime) / 1000) | 0
