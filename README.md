@@ -17,6 +17,27 @@
 
 # Usage
 
+$$
+\frac{a}{b+c}+\frac{b}{a+c}+\frac{c}{a+b}=4
+\text { ,find the smallest positive integer }
+$$
+
+```javascript
+let [a, b, c] = [
+  new Big('4373612677928697257861252602371390152816537558161613618621437993378423467772036'),
+  new Big('36875131794129999827197811565225474825492979968971970996283137471637224634055579'),
+  new Big('154476802108746166441951315019919837485664325669565431700026634898253202035277999')
+  //=> a/(b+c) + b/(a+c) + c/(a+b) =  4
+]
+console.log(
+  'a/(b+c) + b/(a+c) + c/(a+b) = ',
+  +a
+    .div(b.add(c))
+    .add(b.div(a.add(c)))
+    .add(c.div(a.add(b))) + ''
+)
+```
+
 ```javascript
 let r = new Big(1) // new Big(Number or String ,dp as Decimal precision)
 r.dp = 7
